@@ -1,4 +1,4 @@
-import VisualTestingDemoPage from "../page_objects/visual_testing/visual_testing_demo-page.js";
+import VisualTestingDemoPage from "./visual_testing_demo-page.js";
 
 describe("Visual Testing", () => {
   it("Verify visual differences between pages", async () => {

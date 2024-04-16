@@ -35,9 +35,9 @@ export const config = {
     services: [
         ['visual', {
             // Some options, see the docs for more
-            baselineFolder: path.join(process.cwd(), './baseLineImages/'),
+            baselineFolder: path.join(process.cwd(), './test/visual-testing/baseLineImages/'),
             formatImageName: '{tag}-{logName}-{width}x{height}',
-            screenshotPath: path.join(process.cwd(), './actualImages/'),
+            screenshotPath: path.join(process.cwd(), './test/visual-testing/actualImages/'),
             savePerInstance: true,
             // ... more options
         }]

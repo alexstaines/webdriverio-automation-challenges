@@ -1,6 +1,8 @@
 {
-  "name": "my-new-project",
+  "name": "webdriverio-automation-challenges",
   "type": "module",
+  "description": "A WebdriverIO project containing various test automation tasks and challenges.",
+  "author": "Alexander Staines",
   "devDependencies": {
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.2",

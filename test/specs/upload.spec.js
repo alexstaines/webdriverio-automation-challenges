@@ -3,7 +3,6 @@ import { fileURLToPath } from "url";
 
 import UploadPage from "../page_objects/upload-page.js";
 
-
 describe("File upload page tests", () => {
   beforeEach(async () => {
     await UploadPage.open();
@@ -12,7 +11,7 @@ describe("File upload page tests", () => {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = dirname(__filename);
     const file = "image1.webp";
-    const filePath = join(__dirname, `../data/images/${file}`);
+    const filePath = join(__dirname, `../test_data/images/${file}`);
 
     await UploadPage.chooseFileBtn.setValue(filePath);
     await UploadPage.uploadBtn.click();
