@@ -1,1 +1,3 @@
 node_modules
+test/visual-testing/baseLineImages
+test/visual-testing/actualImages
