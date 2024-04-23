@@ -2,16 +2,32 @@ import VisualTestingDemoPage from "./visual_testing_demo-page.js";
 
 describe("Visual Testing", () => {
   it("Verify visual differences between pages", async () => {
-    await VisualTestingDemoPage.open(VisualTestingDemoPage.Urls.Base);
-    //await browser.getTitle().toHaveTextContaining("ACME demo app");
+    // -- open first version of Applitools webpage --
+    await VisualTestingDemoPage.openUrlAndVerifyTitleAndUrl(VisualTestingDemoPage.Urls.ACMEAPP_1);
 
+    // save full page screenshot and match with current page
     await browser.saveFullPageScreen("full-page-snapshot");
 
-    await expect(browser).toMatchFullPageSnapshot("full-page-snapshot");
+    // -- open second version of Applitools webpage --
+    await VisualTestingDemoPage.openUrlAndVerifyTitleAndUrl(VisualTestingDemoPage.Urls.ACMEAPP_2);
 
-    await VisualTestingDemoPage.open(VisualTestingDemoPage.Urls.Changed);
-    //await browser.getTitle().toHaveTextContaining("ACME demo app");
+    // check that there exists a mismatch due to dynamic content (timer)
+    const checkDifference = await browser.checkFullPageScreen("full-page-snapshot");
+    await expect(checkDifference).toBeGreaterThan(0);
+  });
 
-    await expect(browser).toMatchFullPageSnapshot("full-page-snapshot");
+  it("Validate dynamic content and timer", async () => {
+    // -- open first version of Applitools webpage --
+    await VisualTestingDemoPage.openUrlAndVerifyTitleAndUrl(VisualTestingDemoPage.Urls.ACMEAPP_1);
+
+    // save full page screenshot and match with current page
+    await browser.saveFullPageScreen("full-page-snapshot");
+
+    // -- open second version of Applitools webpage --
+    await VisualTestingDemoPage.openUrlAndVerifyTitleAndUrl(VisualTestingDemoPage.Urls.ACMEAPP_2);
+
+    // check that there exists no mismatch, taking into account dynamic content (timer)
+    const checkDifference = await browser.checkFullPageScreen("full-page-snapshot");
+    await expect(checkDifference).toBeLessThan(0.3);
   });
 });

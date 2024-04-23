@@ -1,22 +1,28 @@
 import Page from "../page_objects/page.js";
 
 class VisualTestingDemoPage extends Page {
-  Urls = {
-    Base: "https://demo.applitools.com/app.html",
-    Changed: "https://demo.applitools.com/app_v2.html",
-  }
   /* 
-    define locators
+  define variables
    */
-  get logoImg() {
-    return $(".logo");
-  }
+  pageTitle = "ACME demo app";
+  Urls = {
+    ACMEAPP_1: "https://demo.applitools.com/app.html",
+    ACMEAPP_2: "https://demo.applitools.com/app_v2.html",
+  };
 
   /* 
     page methods and functionality
    */
   open(url) {
     return super.open(url);
+  }
+
+  async openUrlAndVerifyTitleAndUrl(url) {
+    await this.open(url);
+
+    // verify correct url and title
+    await expect(await browser.getUrl()).toContain(url);
+    await expect(await browser.getTitle()).toContain(this.pageTitle);
   }
 }
 
