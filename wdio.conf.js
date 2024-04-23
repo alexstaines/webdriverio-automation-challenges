@@ -1,4 +1,4 @@
-import path from 'node:path'
+import path from 'node:path';
 
 export const config = {
     //
@@ -39,6 +39,7 @@ export const config = {
             formatImageName: '{tag}-{logName}-{width}x{height}',
             screenshotPath: path.join(process.cwd(), './test/visual-testing/actualImages/'),
             savePerInstance: true,
+            clearRuntimeFolder: true
             // ... more options
         }]
     ],
