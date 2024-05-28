@@ -5,3 +5,5 @@ Includes a basic visual testing demo using Webdriverio's visual testing service.
 Sites used:
 - https://the-internet.herokuapp.com/
 - https://testsheepnz.github.io/BasicCalculator.html
+- https://demo.applitools.com/app.html
+- https://demo.applitools.com/app_v2.html
